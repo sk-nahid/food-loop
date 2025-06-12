@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from '../Pages/Home';
 import Navbar from '../Components/NavBar';
-import { NavLink } from 'react-router';
+import { NavLink, Outlet } from 'react-router';
 import Footer from '../Components/Footer';
 
 const Root = () => {
@@ -15,6 +15,9 @@ const Root = () => {
     return (
         <div>
             <Navbar NavLinks={NavLinks}></Navbar>
+            <div>
+                <Outlet></Outlet>
+            </div>
             <Footer NavLinks={NavLinks}></Footer>
         </div>
     );
