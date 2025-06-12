@@ -6,7 +6,7 @@ const Navbar = ({NavLinks}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // 🔐 Hardcoded login status
-  const isLoggedIn = true; // Set to false to show "Login" instead
+  const isLoggedIn = false; // Set to false to show "Login" instead
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
