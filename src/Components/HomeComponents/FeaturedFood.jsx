@@ -5,7 +5,7 @@ const FeaturedFood = () => {
     const [featureFoods, setFeatureFood] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/food')
+        fetch('http://localhost:3000/food?limit=6')
             .then(res => res.json())
             .then(data => setFeatureFood(data))
     }, [])

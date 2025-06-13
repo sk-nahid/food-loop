@@ -1,5 +1,7 @@
 import React from 'react';
 import useAuth from '../Hooks/useAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 // {
 //   "_id": "684a93fef190afaec1c2d063",
@@ -16,7 +18,7 @@ import useAuth from '../Hooks/useAuth';
 // }
 
 const AddFood = () => {
-    const {user}= useAuth()
+    const { user } = useAuth()
 
     const handleAddFood = e => {
         e.preventDefault();
@@ -24,9 +26,24 @@ const AddFood = () => {
         const formData = new FormData(form);
         const ObjForm = Object.fromEntries(formData);
 
-        const status = 'available'
-        const newFood ={status,...ObjForm}
+        const foodStatus = 'available'
+        const newFood = { foodStatus, ...ObjForm }
         console.log(newFood)
+        //add data to database
+
+        axios.post('http://localhost:3000/food', newFood)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Food Added Successful",
+                        icon: "success",
+                        draggable: true
+                    });
+                }
+                console.log(res.data)
+            })
+            .catch(error => console.log(error))
+
     }
     return (
         <div className="max-w-3xl mx-auto p-6 bg-base-100 shadow-xl rounded-2xl mt-10">
@@ -82,19 +99,19 @@ const AddFood = () => {
                     <label className="label">
                         <span className="label-text"> Name</span>
                     </label>
-                    <input  type="text" placeholder={user.displayName} value={user.displayName} name='donorName' className="input input-bordered w-full" />
+                    <input type="text" placeholder={user.displayName} value={user.displayName} name='donorName' className="input input-bordered w-full" />
                 </div>
                 <div>
                     <label className="label">
                         <span className="label-text">Photo URL</span>
                     </label>
-                    <input  type="text" value={user.photoURL} name='donorImage' className="input input-bordered w-full" />
+                    <input type="text" value={user.photoURL} name='donorImage' className="input input-bordered w-full" />
                 </div>
                 <div>
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input  type="text" value={user.email} name='donorEmail' className="input input-bordered w-full" />
+                    <input type="text" value={user.email} name='donorEmail' className="input input-bordered w-full" />
                 </div>
                 <input className='btn btn-primary w-full' type="submit" value="Add Food" />
             </form>
