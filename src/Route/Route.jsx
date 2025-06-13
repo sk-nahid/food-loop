@@ -7,6 +7,7 @@ import FoodDetails from "../Pages/FoodDetails";
 import AvailableFood from "../Pages/AvailableFood";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRoute from "../Pages/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/food/:id',
-        element: <FoodDetails></FoodDetails>,
+        element:<PrivateRoute> <FoodDetails></FoodDetails></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:3000/food/${params.id}`)
       },
 
