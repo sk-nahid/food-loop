@@ -3,6 +3,7 @@ import HeroSlider from '../Components/HomeComponents/HeroSlider';
 import FeaturedFood from '../Components/HomeComponents/FeaturedFood';
 import WhyDonate from '../Components/HomeComponents/WhyDonate';
 import Blogs from '../Components/HomeComponents/Blogs';
+import { Link } from 'react-router';
 
 const Home = () => {
     return (
@@ -22,7 +23,7 @@ const Home = () => {
                 </div>
                 <FeaturedFood></FeaturedFood>
                 <div className='flex mt-8 '>
-                    <button className='btn btn-primary  mx-auto'>All Available Food</button>
+                  <button className='btn btn-primary  mx-auto'><Link to='/available-foods'>All Available Food</Link> </button> 
                 </div>
             </div>
             <div>
