@@ -20,12 +20,14 @@ const FoodDetails = () => {
     const form = e.target;
     const formData = new FormData(form);
     const objForm = Object.fromEntries(formData)
+    console.log(objForm)
 
     //add request
     axios.post('http://localhost:3000/request-food', objForm)
       .then(res => {
         console.log(res.data)
         if (res.data.insertedId) {
+          
           Swal.fire({
             title: "Request Added",
             icon: "success",
