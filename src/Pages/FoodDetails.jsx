@@ -39,10 +39,10 @@ const FoodDetails = () => {
       .catch(error => {
         console.log(error)
       })
-    const foodStatus= 'requested'
-    console.log(foodStatus)
+    const status= {foodStatus:'requested'}
+    console.log(status)
     //update status
-    axios.patch(`http://localhost:3000/food/${_id}`, foodStatus)
+    axios.patch(`http://localhost:3000/food/${_id}`, status)
       .then(res => {
       console.log(res.data)
       })
@@ -205,7 +205,7 @@ const FoodDetails = () => {
                       </div>
 
                       <div className="mt-6">
-                        <input type="submit" value="Request This food" />
+                        <input className='btn btn-primary w-full' type="submit" value="Request This food" />
                       </div>
                     </form>
                   </div>

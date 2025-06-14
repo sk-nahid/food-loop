@@ -12,6 +12,7 @@ import AddFood from "../Pages/AddFood";
 import RequestedFood from "../Pages/RequestedFood";
 import useAuth from "../Hooks/useAuth";
 import MyFoods from "../Pages/MyFoods";
+import UpdateFood from "../Pages/UpdateFood";
 
 
 export const router = createBrowserRouter([
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([
       {
         path: "/my-foods",
         element: <PrivateRoute><MyFoods></MyFoods></PrivateRoute>
+      },
+      {
+        path: "/update-food/:id",
+        element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
+        loader: ({params})=> fetch(`http://localhost:3000/food/${params.id}`)
       },
 
       //authentication

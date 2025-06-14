@@ -1,15 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../Hooks/useAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const MyFoods = () => {
     const [myFood, setMyFood] = useState([]);
     const { user } = useAuth()
     console.log(user.email)
-    useEffect(() => {
+
+    const loadFoodData = () => {
         fetch(`http://localhost:3000/food?email=${user.email}`)
             .then(res => res.json())
-        .then(data=> setMyFood(data))
+            .then(data => {
+                setMyFood(data)
+                console.log('use data')
+            })
+    }
+    useEffect(() => {
+        loadFoodData()
     }, [])
+
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:3000/food/${id}`)
+            .then(res => {
+
+                if (res.data.deletedCount) {
+                    loadFoodData()
+                    Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+
+
+                }
+            })
+            .catch(error => console.log(error))
+                
+            }
+        });
+
+        
+
+    }
 
     console.log(myFood)
 
@@ -29,15 +74,15 @@ const MyFoods = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        myFood.map((food,index) => <tr>
-                            <th>{index+1}</th>
-                            <td>{ food.foodName}</td>
-                            <td>{ food.expiredDate}</td>
-                            <td className=''>{food.foodStatus === "available"?<span className='bg-green-300 text-gray-800 px-1 rounded-full'>{ food.foodStatus}</span>:<span className='bg-red-300 text-gray-800 px-1 rounded-full'>{ food.foodStatus}</span> } </td>
+                        myFood.map((food, index) => <tr>
+                            <th>{index + 1}</th>
+                            <td>{food.foodName}</td>
+                            <td>{food.expiredDate}</td>
+                            <td className=''>{food.foodStatus === "available" ? <span className='bg-green-300 text-gray-800 px-1 rounded-full'>{food.foodStatus}</span> : <span className='bg-red-300 text-gray-800 px-1 rounded-full'>{food.foodStatus}</span>} </td>
                             <td>
                                 <div>
-                                    <button className='btn btn-primary mx-4'>Update</button>
-                                    <button className='btn btn-error'>Delete</button>
+                                    <Link to={`/update-food/${food._id}`} className='btn btn-primary mx-4'>Update</Link>
+                                    <button onClick={() => handleDelete(food._id)} className='btn btn-error'>Delete</button>
                                 </div>
                             </td>
                         </tr>)
