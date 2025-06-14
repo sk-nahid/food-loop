@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../Context/AuthContexts';
 import { updateProfile } from 'firebase/auth';
@@ -7,7 +7,9 @@ import { auth } from '../Firebase/firebase.config';
 import useAuth from '../Hooks/useAuth';
 
 const Register = () => {
-    const { singUp,googleLogin } = useAuth()
+    const { singUp, googleLogin } = useAuth()
+    const [error, setError] = useState('');
+
 
     const handleRegister = e => {
         e.preventDefault();
@@ -17,6 +19,20 @@ const Register = () => {
         const photo = e.target.photo.value;
         const password = e.target.password.value;
         console.log(name, email, photo, password)
+
+        const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+        if (!pattern.test(password)) {
+            setError(
+                'Password must be at least 6 characters and include uppercase and lowercase letters.'
+            );
+            if (error) {
+                toast.error(error)
+            }
+            return
+        }
+
+
         //register in firebase;
         singUp(email, password)
             .then(res => {
@@ -43,9 +59,9 @@ const Register = () => {
     const handleGoogleSingup = () => {
         googleLogin()
             .then(res => {
-            console.log(res.user)
+                console.log(res.user)
             })
-        .catch(error=> console.log(error))
+            .catch(error => console.log(error))
     }
     return (
         <div className="min-h-screen flex items-center justify-center bg-base-200">
@@ -112,7 +128,7 @@ const Register = () => {
                             Forgot Password?
                         </a>
                     </div>
-                    <input className='btn btn-primary w-full' type="submit" value="Login" />
+                    <input className='btn btn-primary w-full' type="submit" value="Register" />
 
                 </form>
                 <button onClick={handleGoogleSingup} className="btn w-full bg-white text-black border-[#e5e5e5]">
@@ -122,7 +138,7 @@ const Register = () => {
 
                 <p className="text-center text-sm">
                     Don't have an account?{" "}
-                    <Link to='/register' className='link text-green-600'>Register</Link>
+                    <Link to='/login' className='link text-green-600'>Login</Link>
                 </p>
                 <ToastContainer></ToastContainer>
             </div>

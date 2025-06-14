@@ -35,7 +35,7 @@ const RequestedFood = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        requeste.map((food,index) => <tr>
+                        requeste.map((food,index) => <tr key={index}>
                             <th>{index+1}</th>
                             <td>{ food.donorName}</td>
                             <td>{ food.requestedFoodPickup}</td>

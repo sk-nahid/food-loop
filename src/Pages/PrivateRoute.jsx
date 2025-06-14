@@ -3,11 +3,13 @@ import useAuth from '../Hooks/useAuth';
 import Loading from '../Components/Loading';
 import Register from './Register';
 import Login from './Login';
-import { Navigate, useNavigate } from 'react-router';
+import { Navigate, useLocation, useNavigate } from 'react-router';
 
 const PrivateRoute = ({children}) => {
     const { user, loading } = useAuth()
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
     
     if (loading) {
         return <Loading></Loading>
@@ -17,7 +19,7 @@ const PrivateRoute = ({children}) => {
         return children
     }
 
-    return <Navigate to='/login'></Navigate>
+    return <Navigate to='/login' state={location.pathname}></Navigate>
 
 };
 
