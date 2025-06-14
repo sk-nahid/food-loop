@@ -11,6 +11,7 @@ import PrivateRoute from "../Pages/PrivateRoute";
 import AddFood from "../Pages/AddFood";
 import RequestedFood from "../Pages/RequestedFood";
 import useAuth from "../Hooks/useAuth";
+import MyFoods from "../Pages/MyFoods";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
         path: "/requested-foods",
         element: <PrivateRoute><RequestedFood></RequestedFood></PrivateRoute>,
         
+      },
+      {
+        path: "/my-foods",
+        element: <PrivateRoute><MyFoods></MyFoods></PrivateRoute>
       },
 
       //authentication
