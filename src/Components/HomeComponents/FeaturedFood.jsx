@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import FoodCards from './FoodCards';
+import { useQuery } from '@tanstack/react-query';
+import getQuery from '../../TanStack/Query';
+import Loading from "../../Components/Loading"
 
 const FeaturedFood = () => {
-    const [featureFoods, setFeatureFood] = useState([])
+    const { data, isLoading } = useQuery({
+        queryKey: ['featuredFoods'],
+        queryFn: () => getQuery()
+    })
 
-    useEffect(() => {
-        fetch('http://localhost:3000/food?limit=6')
-            .then(res => res.json())
-            .then(data => setFeatureFood(data))
-    }, [])
-    console.log(featureFoods)
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+    
+
+    
     return (
         <div className='grid md:grid-cols-3 gap-4'>
             {
-                featureFoods.map(food => <FoodCards food={food}></FoodCards>)
+                data.map(food => <FoodCards food={food}></FoodCards>)
             }
-            
+
         </div>
-        
+
     );
 };
 
