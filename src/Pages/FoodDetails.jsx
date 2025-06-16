@@ -10,22 +10,18 @@ const FoodDetails = () => {
   const food = useLoaderData()
   const { user } = useAuth()
   const [isOpen, setIsOpen] = useState(false);
-  console.log(food)
   const { _id, foodName, foodImage, pickupLocation, expiredDate, donorName, donorEmail, } = food
 
-  console.log(_id)
 
   const hanldeRequest = e => {
     e.preventDefault()
     const form = e.target;
     const formData = new FormData(form);
     const objForm = Object.fromEntries(formData)
-    console.log(objForm)
 
     //add request
     axios.post('http://localhost:3000/request-food', objForm)
       .then(res => {
-        console.log(res.data)
         if (res.data.insertedId) {
           
           Swal.fire({
@@ -40,11 +36,9 @@ const FoodDetails = () => {
         console.log(error)
       })
     const status= {foodStatus:'requested'}
-    console.log(status)
     //update status
     axios.patch(`http://localhost:3000/food/${_id}`, status)
       .then(res => {
-      console.log(res.data)
       })
     .catch(error=> console.log(error))
   }

@@ -18,7 +18,6 @@ const Register = () => {
         const email = e.target.email.value;
         const photo = e.target.photo.value;
         const password = e.target.password.value;
-        console.log(name, email, photo, password)
 
         const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -46,8 +45,7 @@ const Register = () => {
                     .catch((error) => {
                         console.log(error)
                     });
-                console.log(res.user);
-                console.log(auth.currentUser)
+
 
             })
             .catch(error => {

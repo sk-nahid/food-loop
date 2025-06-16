@@ -19,7 +19,7 @@ const FeaturedFood = () => {
     return (
         <div className='grid md:grid-cols-3 gap-4'>
             {
-                data.map(food => <FoodCards food={food}></FoodCards>)
+                data.map(food => <FoodCards key={food._id} food={food}></FoodCards>)
             }
 
         </div>

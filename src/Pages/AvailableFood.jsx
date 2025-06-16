@@ -45,7 +45,7 @@ const AvailableFood = () => {
             </div>
             <div className={`grid ${toggleLayout ? 'md:grid-cols-2' : "md:grid-cols-3"}  gap-4 py-8`}>
                 {
-                    availableFoods.map(food => <FoodCards food={food}></FoodCards>)
+                    availableFoods.map(food => <FoodCards key={food._id} food={food}></FoodCards>)
                 }
             </div>
         </div>

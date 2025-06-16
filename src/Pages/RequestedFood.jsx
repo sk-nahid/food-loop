@@ -22,7 +22,6 @@ const RequestedFood = () => {
         return <Loading></Loading>
     }
 
-    console.log(requeste)
     return (
 
         <div className="overflow-x-auto max-w-7xl mx-auto">

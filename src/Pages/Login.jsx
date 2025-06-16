@@ -6,22 +6,18 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
     const { login, loading, googleLogin } = useAuth()
-    console.log(loading)
     const location = useLocation()
     const navigate = useNavigate()
-    console.log(location)
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password)
 
         
 
             //login with firebase
             login(email, password)
                 .then(res => {
-                    console.log(res)
                     toast.success("login successful")
                     navigate(`${location.state ? location.state : "/"}`)
 
@@ -37,7 +33,6 @@ const Login = () => {
         const handleGoogleSingup = () => {
             googleLogin()
                 .then(res => {
-                    console.log(res.user)
                     navigate(`${location.state ? location.state : "/"}`)
 
                 })

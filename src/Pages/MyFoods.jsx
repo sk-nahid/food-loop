@@ -8,9 +8,7 @@ const MyFoods = () => {
     const [myFood, setMyFood] = useState([]);
     const { user } = useAuth()
     const axios = useAxios()
-    console.log(user.email)
-    console.log(user.accessToken)
-
+   
     const loadFoodData = () => {
         axios.get(`food?email=${user.email}`).then(res => setMyFood(res.data))
     }
@@ -53,7 +51,6 @@ const MyFoods = () => {
 
     }
 
-    console.log(myFood)
 
     return (
         <div className="overflow-x-auto max-w-7xl mx-auto">
@@ -71,7 +68,7 @@ const MyFoods = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        myFood.map((food, index) => <tr>
+                        myFood.map((food, index) => <tr key={index}>
                             <th>{index + 1}</th>
                             <td>{food.foodName}</td>
                             <td>{food.expiredDate}</td>

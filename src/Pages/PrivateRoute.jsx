@@ -9,7 +9,6 @@ const PrivateRoute = ({children}) => {
     const { user, loading } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location)
     
     if (loading) {
         return <Loading></Loading>

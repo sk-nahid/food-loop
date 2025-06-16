@@ -7,7 +7,6 @@ import Swal from 'sweetalert2';
 const UpdateFood = () => {
     const food = useLoaderData()
     const { user } = useAuth()
-    console.log(food)
     const id = food._id
 
     const handleUpdateFood = (e) => {
@@ -16,8 +15,6 @@ const UpdateFood = () => {
         const form = e.target;
         const formData = new FormData(form)
         const objForm = Object.fromEntries(formData)
-        console.log(objForm)
-        console.log(id)
 
         axios.put(`http://localhost:3000/food/${id}`, objForm)
             .then(res => {

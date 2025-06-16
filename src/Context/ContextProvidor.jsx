@@ -38,7 +38,6 @@ const ContextProvidor = ({ children }) => {
         return signOut(auth)
     }
 
-    console.log(user)
 
 
     const authData = {

@@ -28,7 +28,6 @@ const AddFood = () => {
 
         const foodStatus = 'available'
         const newFood = { foodStatus, ...ObjForm }
-        console.log(newFood)
         //add data to database
 
         axios.post('http://localhost:3000/food', newFood)
@@ -40,7 +39,6 @@ const AddFood = () => {
                         draggable: true
                     });
                 }
-                console.log(res.data)
                 form.reset()
             })
             .catch(error => console.log(error))

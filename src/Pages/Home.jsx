@@ -23,7 +23,7 @@ const Home = () => {
                 </div>
                 <FeaturedFood></FeaturedFood>
                 <div className='flex mt-8 '>
-                  <button className='btn btn-primary  mx-auto'><Link to='/available-foods'>All Available Food</Link> </button> 
+                  <Link className='btn btn-primary  mx-auto' to='/available-foods'>All Available Food</Link> 
                 </div>
             </div>
             <div>
