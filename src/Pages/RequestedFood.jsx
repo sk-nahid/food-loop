@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../Hooks/useAuth';
 import Loading from '../Components/Loading';
+import useAxios from '../Hooks/useAxios';
 
 const RequestedFood = () => {
     const [requeste, setrequest] = useState([])
     const [loading, setLoading] = useState(true)
     const { user } = useAuth()
+    const axios = useAxios()
+    
     useEffect(() => {
-        fetch(`http://localhost:3000/request-food?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => setrequest(data))
+        axios.get(`request-food?email=${user.email}`)
+            .then(res => {
+            setrequest(res.data)
+            })
+            .catch(error => console.log(error))
         setLoading(false)
     }, [])
 

@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../Hooks/useAuth';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
+import useAxios from '../Hooks/useAxios';
 
 const MyFoods = () => {
     const [myFood, setMyFood] = useState([]);
     const { user } = useAuth()
+    const axios = useAxios()
     console.log(user.email)
+    console.log(user.accessToken)
 
     const loadFoodData = () => {
-        fetch(`http://localhost:3000/food?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setMyFood(data)
-                console.log('use data')
-            })
+        axios.get(`food?email=${user.email}`).then(res => setMyFood(res.data))
     }
     useEffect(() => {
         loadFoodData()
