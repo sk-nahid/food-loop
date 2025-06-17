@@ -16,7 +16,7 @@ const UpdateFood = () => {
         const formData = new FormData(form)
         const objForm = Object.fromEntries(formData)
 
-        axios.put(`http://localhost:3000/food/${id}`, objForm)
+        axios.put(`https://food-loop-server.vercel.app/food/${id}`, objForm)
             .then(res => {
                 if (res.data.modifiedCount) {
                     Swal.fire({

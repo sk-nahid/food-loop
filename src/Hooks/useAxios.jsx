@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 
 
 const axiosInstance = axios.create({
-        baseURL: 'http://localhost:3000/'
+        baseURL: 'https://food-loop-server.vercel.app/'
     })
 
 const useAxios = () => {

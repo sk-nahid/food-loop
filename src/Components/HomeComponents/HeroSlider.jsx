@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { motion } from 'motion/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -41,9 +42,21 @@ const HeroSlider = () => {
               style={{ backgroundImage: `url(${slide.img})` }}
             >
               <div className="w-full h-full bg-black/60 flex items-center justify-center px-4 text-center">
-                <h2 className="text-white text-3xl md:text-5xl font-bold drop-shadow-lg leading-snug">
+                <motion.h2
+                  animate={{
+                    color:["#ff5733", "#5eff33", "#3346ff"],
+                    scale:[1,1.2,1.2,1],
+                    transition: {
+                      repeat: Infinity,
+                      duration: 9,
+                      delay:4
+                    },
+                    
+                    
+                  }}
+                  className="text-white text-3xl md:text-5xl font-bold drop-shadow-lg leading-snug">
                   {slide.text}
-                </h2>
+                </motion.h2>
               </div>
             </div>
           </SwiperSlide>

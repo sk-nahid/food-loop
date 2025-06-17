@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = ({ NavLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user,logOut } = useAuth();
+  const { user, logOut } = useAuth();
   const [clicked, setClicked] = useState(false)
 
 
@@ -21,7 +21,7 @@ const Navbar = ({ NavLinks }) => {
       .catch((error) => {
         toast.error('something problem')
       })
-    
+
   }
 
   return (
@@ -41,10 +41,14 @@ const Navbar = ({ NavLinks }) => {
         <div className="hidden md:block">
 
 
-          {user ? (
-            !clicked ? <img className="w-[80px] h-[80px] object-cover object-center rounded-full" onClick={handleTogleBtn} src={user?.photoURL} alt="profile img" /> : <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
-          ) :
-            (<Link to="/login" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</Link>)}
+          {!user ? <div className="flex gap-4">
+            <Link to="/register" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Register</Link>
+            <Link to="/login" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</Link>
+
+          </div> : <div className="flex gap-4 items-center">
+            <img className="w-[70px] h-[70px] object-cover object-center rounded-full" onClick={handleTogleBtn} src={user?.photoURL} alt="profile img" />
+            <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
+          </div>}
 
 
         </div>
@@ -61,17 +65,17 @@ const Navbar = ({ NavLinks }) => {
 
       {/* Mobile Nav Dropdown */}
       {isOpen && (
-        <ul onClick={()=>setIsOpen(false)} className="md:hidden px-4 pb-4 flex flex-col gap-4">
+        <ul onClick={() => setIsOpen(false)} className="md:hidden px-4 pb-4 flex flex-col gap-4">
           {NavLinks}
           <li>
             {user ? (
-            !clicked ? <div className=""><img  className="w-[100px] h-[100px] object-cover object-center rounded-full" onClick={handleTogleBtn} src={user?.photoURL} alt="profile img" /></div> : <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
-          ) :
-            (<Link to="/login" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</Link>)}
+              !clicked ? <div className=""><img className="w-[100px] h-[100px] object-cover object-center rounded-full" onClick={handleTogleBtn} src={user?.photoURL} alt="profile img" /></div> : <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
+            ) :
+              (<Link to="/login" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</Link>)}
           </li>
         </ul>
       )}
-    <ToastContainer></ToastContainer>
+      <ToastContainer></ToastContainer>
     </nav>
   );
 };

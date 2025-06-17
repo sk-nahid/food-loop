@@ -30,7 +30,7 @@ const AddFood = () => {
         const newFood = { foodStatus, ...ObjForm }
         //add data to database
 
-        axios.post('http://localhost:3000/food', newFood)
+        axios.post('https://food-loop-server.vercel.app/food', newFood)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

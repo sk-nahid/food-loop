@@ -9,7 +9,7 @@ const AvailableFood = () => {
     const [searchTerm, setSearchTerm]= useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/food?search=${searchTerm}`)
+        fetch(`https://food-loop-server.vercel.app/food?search=${searchTerm}`)
             .then(res => res.json())
             .then(data => setAvailableFoods(data))
     }, [searchTerm])

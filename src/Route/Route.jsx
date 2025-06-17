@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
       {
         path: '/food/:id',
         element:<PrivateRoute> <FoodDetails></FoodDetails></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:3000/food/${params.id}`)
+        loader: ({params})=> fetch(`https://food-loop-server.vercel.app/food/${params.id}`)
       },
       {
         path: "/add-food",
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
       {
         path: "/update-food/:id",
         element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:3000/food/${params.id}`)
+        loader: ({params})=> fetch(`https://food-loop-server.vercel.app/food/${params.id}`)
       },
 
       //authentication

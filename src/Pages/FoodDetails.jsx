@@ -20,7 +20,7 @@ const FoodDetails = () => {
     const objForm = Object.fromEntries(formData)
 
     //add request
-    axios.post('http://localhost:3000/request-food', objForm)
+    axios.post('https://food-loop-server.vercel.app/request-food', objForm)
       .then(res => {
         if (res.data.insertedId) {
           
@@ -37,7 +37,7 @@ const FoodDetails = () => {
       })
     const status= {foodStatus:'requested'}
     //update status
-    axios.patch(`http://localhost:3000/food/${_id}`, status)
+    axios.patch(`https://food-loop-server.vercel.app/food/${_id}`, status)
       .then(res => {
       })
     .catch(error=> console.log(error))

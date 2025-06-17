@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from 'motion/react';
 
 const FoodCards = ({ food }) => {
   const {
@@ -15,7 +16,8 @@ const FoodCards = ({ food }) => {
   } = food;
 
   return (
-    <div className="card bg-base-100 shadow-md hover:shadow-xl transition duration-300">
+    <motion.div
+      className="card bg-base-100 shadow-md hover:shadow-xl transition duration-300">
       <figure>
         <img src={foodImage} alt={foodName} className="h-44 w-full object-cover" />
       </figure>
@@ -31,7 +33,7 @@ const FoodCards = ({ food }) => {
           <Link to={`/food/${_id}`}><button className="btn btn-sm btn-outline btn-primary">View More</button></Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 
 };

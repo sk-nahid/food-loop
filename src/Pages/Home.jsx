@@ -18,7 +18,7 @@ const Home = () => {
             <div>
                 <div className="w-full mx-auto my-8 px-4">
                     <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
-                        <h2 className="text-2xl font-bold text-gray-800">🍽️ Available Foods</h2>
+                        <h2 className="text-2xl font-bold text-gray-800">🍽️ Featured Foods</h2>
                     </div>
                 </div>
                 <FeaturedFood></FeaturedFood>

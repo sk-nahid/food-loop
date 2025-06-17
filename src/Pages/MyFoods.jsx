@@ -28,7 +28,7 @@ const MyFoods = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/food/${id}`)
+                axios.delete(`https://food-loop-server.vercel.app/food/${id}`)
             .then(res => {
 
                 if (res.data.deletedCount) {
