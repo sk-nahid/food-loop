@@ -16,6 +16,9 @@ const Navbar = ({ NavLinks }) => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
+        localStorage.clear();
+        sessionStorage.clear();
+
         toast.success("Log Out Successful")
       })
       .catch((error) => {

@@ -10,7 +10,8 @@ const MyFoods = () => {
     const axios = useAxios()
    
     const loadFoodData = () => {
-        axios.get(`food?email=${user.email}`).then(res => setMyFood(res.data))
+        axios.get(`my-food?email=${user.email}`).then(res => setMyFood(res.data))
+        console.log(user.email)
     }
     useEffect(() => {
         loadFoodData()

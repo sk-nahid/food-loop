@@ -7,11 +7,8 @@ const FoodCards = ({ food }) => {
     _id,
     foodName,
     foodImage,
-    foodQuantity,
     pickupLocation,
     expiredDate,
-    additionalNotes,
-    donor,
     foodStatus
   } = food;
 
