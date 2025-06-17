@@ -1,12 +1,40 @@
-# React + Vite
+# 🍱 FoodLoopBD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A food-sharing platform that allows users to donate and request leftover food to minimize waste and support the community.
 
-Currently, two official plugins are available:
+## 🌐 Live Website
+[https://assignment-11-acf48.web.app](https://assignment-11-acf48.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Project Purpose
 
-## Expanding the ESLint configuration
+FoodLoopBD connects food donors and requesters. Donors can post leftover food, and nearby users can request it. The app promotes food sustainability by reducing waste and helping those in need.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Key Features
+
+- ✅ User Authentication (Firebase)
+- ✅ Add, Update, Delete food posts
+- ✅ Request food from available listings
+- ✅ Role-based dashboard (admin, donor, requester)
+- ✅ Secure access with token-based auth (Firebase ID token)
+- ✅ Responsive UI using Tailwind CSS and DaisyUI
+- ✅ Sort, search, and filter food items
+- ✅ Request status update system
+
+## 🧰 NPM Packages Used
+
+| Package                    | Purpose                                 |
+|----------------------------|-----------------------------------------|
+| `react`                   | Core React framework                    |
+| `react-router-dom`        | Routing and navigation                  |
+| `firebase`                | Authentication and token management     |
+| `axios`                   | HTTP client for API calls               |
+| `@tanstack/react-query`  | Data fetching and caching               |
+| `react-icons`             | Icon library                            |
+| `daisyui`                 | UI components styled with Tailwind CSS  |
+| `tailwindcss`             | Utility-first CSS framework             |
+| `mongodb` (server-side)   | Database (used in backend)              |
+| `express` (server-side)   | Backend API creation                    |
+| `cors`, `dotenv`, etc.    | Environment and cross-origin handling   |
+
+## 📁 Folder Structure (Frontend)
+

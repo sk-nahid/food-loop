@@ -109,7 +109,7 @@ const FoodDetails = () => {
           <div>
             {isOpen && (
               <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                <div className="bg-base-100 rounded-xl p-6 w-[90%] md:w-[50%] shadow-lg relative">
+                <div className="bg-base-100 rounded-xl p-6 w-[90%] md:w-[50%] shadow-lg relative max-h-[90vh] overflow-y-auto">
                   {/* request form */}
                   <div className="max-w-full mx-auto p-6 bg-base-100 rounded-xl shadow-md mt-10">
                     <h2 className="text-2xl font-bold text-center mb-6 text-primary">Request Food</h2>

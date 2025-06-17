@@ -72,7 +72,7 @@ const Register = () => {
             <div className="w-full max-w-3xl shadow-xl bg-base-100 p-8 rounded-2xl space-y-6">
                 <h2 className="text-3xl font-bold text-center text-primary">Register to Your Account</h2>
 
-                <div className='grid grid-cols-2'>
+                <div className='grid md:grid-cols-2'>
                     <div>
                         <Lottie width={60}   animationData={registerAnimation} loop={true}></Lottie>
                     </div>

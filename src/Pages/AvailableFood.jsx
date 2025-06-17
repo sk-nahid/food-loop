@@ -39,7 +39,7 @@ const AvailableFood = () => {
 
                 </div>
 
-                <div >
+                <div className='hidden md:block' >
                     <button onClick={() => setToggleLayout(!toggleLayout)} className='btn btn-primary'>Change LayOut</button>
                 </div>
             </div>
