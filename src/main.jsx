@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 
+document.documentElement.setAttribute("data-theme", "lighttheme");
 
 const client = new QueryClient()
 createRoot(document.getElementById('root')).render(

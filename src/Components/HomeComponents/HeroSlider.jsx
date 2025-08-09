@@ -22,7 +22,7 @@ const HeroSlider = () => {
   ];
 
   return (
-    <div className="w-full h-[60vh] relative">
+    <div className="w-full h-[60vh] relative ">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         spaceBetween={30}
@@ -33,15 +33,15 @@ const HeroSlider = () => {
         }}
         pagination={{ clickable: true }}
         navigation={true}
-        className="h-full"
+        className="h-full rounded-2xl"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="w-full h-full bg-cover bg-center"
+              className="w-full h-full bg-cover bg-center rounded-2xl"
               style={{ backgroundImage: `url(${slide.img})` }}
             >
-              <div className="w-full h-full bg-black/60 flex items-center justify-center px-4 text-center">
+              <div className="w-full h-full bg-black/60 flex items-center justify-center px-4 text-center rounded-2xl">
                 <motion.h2
                   animate={{
                     color:["#ff5733", "#5eff33", "#3346ff"],

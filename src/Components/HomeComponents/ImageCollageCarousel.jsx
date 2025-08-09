@@ -12,7 +12,7 @@ import Loading from "../Loading";
 
 const ImageCollageCarousel = () => {
     const { photos, loading, error } = usePexelsPhotos('food donation', 15);
-
+console.log(photos)
     if (loading) {
         return Loading
     }

@@ -4,41 +4,45 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
-  darkMode: "class", // optional, useful if you use Tailwind's dark: utilities
+  darkMode: "class",
   theme: {
-    extend: {
-      colors: {
-        // these resolve at runtime from CSS variables
-        text: "var(--text)",
-        background: "var(--background)",
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
-        accent: "var(--accent)",
-      },
-    },
+    extend: {},
   },
   plugins: [require("daisyui")],
+  // --- Start of Fix ---
   daisyui: {
     themes: [
       {
-        // DaisyUI theme names should match your data-theme values
-        foodloop: {
-          primary: "var(--primary)",
-          secondary: "var(--secondary)",
-          accent: "var(--accent)",
-          neutral: "var(--text)",
-          "base-100": "var(--background)",
+        darktheme: {
+          "text": "#effaf3",
+          "background": "#041008",
+          "primary": "#35bb5b",
+          "secondary": "#631c53",
+          "accent": "#8f3a28",
+          "neutral": "#1f2937",
+          "base-100": "#041008", // This is the main background color
+          "info": "#3b82f6",
+          "success": "#22c55e",
+          "warning": "#f59e0b",
+          "error": "#ef4444",
         },
       },
       {
-        foodloopdark: {
-          primary: "var(--primary)",
-          secondary: "var(--secondary)",
-          accent: "var(--accent)",
-          neutral: "var(--text)",
-          "base-100": "var(--background)",
+        lighttheme: {
+          "text": "#051009",
+          "background": "#effbf3",
+          "primary": "#44ca6a",
+          "secondary": "#e39cd3",
+          "accent": "#d78170",
+          "neutral": "#374151",
+          "base-100": "#effbf3", // This is the main background color
+          "info": "#3b82f6",
+          "success": "#22c55e",
+          "warning": "#f59e0b",
+          "error": "#ef4444",
         },
-      },
-    ],
+      }
+    ]
   },
-};
+  // --- End of Fix ---
+}

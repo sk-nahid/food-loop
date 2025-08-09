@@ -14,12 +14,15 @@ import useAuth from "../Hooks/useAuth";
 import MyFoods from "../Pages/MyFoods";
 import UpdateFood from "../Pages/UpdateFood";
 import About from "../Pages/About";
+import ErrorPage from "../Components/ErrorPage";
+import BlogDetails from "../Components/BlogDetails";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -32,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         Component: About
+      },
+      {
+        path: `/blogs/:id`,
+        Component: BlogDetails
       },
       {
         path: '/food/:id',

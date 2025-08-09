@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import FoodCards from '../Components/HomeComponents/FoodCards';
+import Loading from '../Components/Loading';
 
 
 const AvailableFood = () => {
     const [availableFoods, setAvailableFoods] = useState([])
     const [toggleLayout, setToggleLayout] = useState(false)
-    const [searchTerm, setSearchTerm]= useState([])
+    const [searchTerm, setSearchTerm] = useState([])
+    const [loading, setLoading] = useState(true)
+    
 
     useEffect(() => {
         fetch(`https://food-loop-server.vercel.app/food?search=${searchTerm}`)
             .then(res => res.json())
-            .then(data => setAvailableFoods(data))
+            .then(data => {
+                
+                setAvailableFoods(data)
+                setLoading(false)
+            })
     }, [searchTerm])
+
+    if (loading)  return Loading
     
     
     return (

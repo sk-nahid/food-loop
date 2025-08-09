@@ -11,7 +11,7 @@ import PexelsGallery from '../Components/HomeComponents/UnsplashGallery';
 
 const Home = () => {
     return (
-        <div className='max-w-7xl mx-auto px-4 py-10'>
+        <div className='max-w-7xl mx-auto px-4 py-10 '>
 
             <div>
                 <HeroSlider></HeroSlider>
@@ -40,25 +40,25 @@ const Home = () => {
             </div>
             <div>
                 <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
-                    <h2 className="text-2xl font-bold text-gray-800">♻️ Our Blogs</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">📝 Our Blogs</h2>
                 </div>
                 <Blogs></Blogs>
             </div>
             <div>
                 <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
-                    <h2 className="text-2xl font-bold text-gray-800">♻️ Impact Status</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">📊 Impact Status</h2>
                 </div>
                 <ImpactStats></ImpactStats>
             </div>
             <div>
                 <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
-                    <h2 className="text-2xl font-bold text-gray-800">♻️ Frequently Asked Questions</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">❓ Frequently Asked Questions </h2>
                 </div>
                 <FaqSection></FaqSection>
             </div>
             <div>
                 <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
-                    <h2 className="text-2xl font-bold text-gray-800">♻️ Food Donation Highlights</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">🖼️ Food Donation Highlights</h2>
                 </div>
                 <ImageCollageCarousel></ImageCollageCarousel>
 
