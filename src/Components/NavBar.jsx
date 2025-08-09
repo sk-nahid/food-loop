@@ -3,6 +3,8 @@ import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
 import useAuth from "../Hooks/useAuth";
 import { toast, ToastContainer } from "react-toastify";
+import ProfileMenu from "./ProfileMenu";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = ({ NavLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,10 +51,16 @@ const Navbar = ({ NavLinks }) => {
             <Link to="/login" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</Link>
 
           </div> : <div className="flex gap-4 items-center">
-            <img className="w-[70px] h-[70px] object-cover object-center rounded-full" onClick={handleTogleBtn} src={user?.photoURL} alt="profile img" />
-            <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
+            {/* <img className="w-[70px] h-[70px] object-cover object-center rounded-full" onClick={handleTogleBtn} src={user?.photoURL} alt="profile img" /> */}
+            <ProfileMenu user={user}
+              handleLogOut={handleLogOut}
+              handleTogleBtn={handleTogleBtn}>
+
+            </ProfileMenu>
+
           </div>}
 
+          
 
         </div>
 
@@ -62,7 +70,7 @@ const Navbar = ({ NavLinks }) => {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {isOpen ? <X size={24}  color="#000000" /> : <Menu size={24} color="#000000" />}
+          {isOpen ? <X size={24} color="#000000" /> : <Menu size={24} color="#000000" />}
         </button>
       </div>
 

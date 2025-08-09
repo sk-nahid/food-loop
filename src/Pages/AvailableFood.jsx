@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FoodCards from '../Components/HomeComponents/FoodCards';
-import { useQuery } from '@tanstack/react-query';
-import getQuery from '../TanStack/Query';
+
 
 const AvailableFood = () => {
     const [availableFoods, setAvailableFoods] = useState([])

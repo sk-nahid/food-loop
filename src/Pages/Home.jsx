@@ -4,6 +4,10 @@ import FeaturedFood from '../Components/HomeComponents/FeaturedFood';
 import WhyDonate from '../Components/HomeComponents/WhyDonate';
 import Blogs from '../Components/HomeComponents/Blogs';
 import { Link } from 'react-router';
+import ImpactStats from '../Components/HomeComponents/ImpactStats';
+import FaqSection from '../Components/HomeComponents/FaqSection';
+import ImageCollageCarousel from '../Components/HomeComponents/ImageCollageCarousel';
+import PexelsGallery from '../Components/HomeComponents/UnsplashGallery';
 
 const Home = () => {
     return (
@@ -39,6 +43,26 @@ const Home = () => {
                     <h2 className="text-2xl font-bold text-gray-800">♻️ Our Blogs</h2>
                 </div>
                 <Blogs></Blogs>
+            </div>
+            <div>
+                <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
+                    <h2 className="text-2xl font-bold text-gray-800">♻️ Impact Status</h2>
+                </div>
+                <ImpactStats></ImpactStats>
+            </div>
+            <div>
+                <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
+                    <h2 className="text-2xl font-bold text-gray-800">♻️ Frequently Asked Questions</h2>
+                </div>
+                <FaqSection></FaqSection>
+            </div>
+            <div>
+                <div className="bg-white shadow-md border border-gray-200 rounded-xl py-4 px-6 text-center">
+                    <h2 className="text-2xl font-bold text-gray-800">♻️ Food Donation Highlights</h2>
+                </div>
+                <ImageCollageCarousel></ImageCollageCarousel>
+
+                
             </div>
         </div>
     );

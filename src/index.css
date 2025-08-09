@@ -1,0 +1,31 @@
+
+
+/* Define variables per data-theme so switching data-theme works */
+@layer base {
+  :root {
+    /* fallback / default (light) */
+    --text: #060606;
+    --background: #f8f9f8;
+    --primary: #709474;
+    --secondary: #adc9b1;
+    --accent: #8aba90;
+  }
+
+  /* matches <html data-theme="foodloop"> */
+  [data-theme="foodloop"] {
+    --text: #060606;
+    --background: #f8f9f8;
+    --primary: #709474;
+    --secondary: #adc9b1;
+    --accent: #8aba90;
+  }
+
+  /* matches <html data-theme="foodloopdark"> */
+  [data-theme="foodloopdark"] {
+    --text: #fafafa;
+    --background: #070807;
+    --primary: #6b8e70;
+    --secondary: #36533b;
+    --accent: #44744a;
+  }
+}

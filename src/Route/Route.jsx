@@ -13,6 +13,7 @@ import RequestedFood from "../Pages/RequestedFood";
 import useAuth from "../Hooks/useAuth";
 import MyFoods from "../Pages/MyFoods";
 import UpdateFood from "../Pages/UpdateFood";
+import About from "../Pages/About";
 
 
 export const router = createBrowserRouter([
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/available-foods",
         Component: AvailableFood
+      },
+      {
+        path: "/about",
+        Component: About
       },
       {
         path: '/food/:id',

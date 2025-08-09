@@ -1,40 +1,44 @@
 // tailwind.config.js
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}"
+  ],
+  darkMode: "class", // optional, useful if you use Tailwind's dark: utilities
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        // these resolve at runtime from CSS variables
+        text: "var(--text)",
+        background: "var(--background)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        accent: "var(--accent)",
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
+        // DaisyUI theme names should match your data-theme values
         foodloop: {
-          "primary": "#65A30D",
-          "secondary": "#F97316",
-          "accent": "#FCD34D",
-          "neutral": "#1E293B",
-          "base-100": "#ffffff",
-          "info": "#38BDF8",
-          "success": "#22C55E",
-          "warning": "#FBBF24",
-          "error": "#EF4444",
+          primary: "var(--primary)",
+          secondary: "var(--secondary)",
+          accent: "var(--accent)",
+          neutral: "var(--text)",
+          "base-100": "var(--background)",
         },
       },
       {
         foodloopdark: {
-          "primary": "#A3E635",
-          "secondary": "#FB923C",
-          "accent": "#FDE68A",
-          "neutral": "#0F172A",
-          "base-100": "#1E293B",
-          "info": "#0EA5E9",
-          "success": "#16A34A",
-          "warning": "#FACC15",
-          "error": "#DC2626",
+          primary: "var(--primary)",
+          secondary: "var(--secondary)",
+          accent: "var(--accent)",
+          neutral: "var(--text)",
+          "base-100": "var(--background)",
         },
       },
     ],
   },
 };
-
-
