@@ -3,20 +3,28 @@ import useAuth from '../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
 import useAxios from '../Hooks/useAxios';
+import Loading from '../Components/Loading';
 
 const MyFoods = () => {
     const [myFood, setMyFood] = useState([]);
     const { user } = useAuth()
     const axios = useAxios()
+    const[loading, setLoading]= useState(true)
    
     const loadFoodData = () => {
-        axios.get(`my-food?email=${user.email}`).then(res => setMyFood(res.data))
+        axios.get(`my-food?email=${user.email}`)
+            .then(res => {
+                setMyFood(res.data)
+                setLoading(false)
+            })
         console.log(user.email)
     }
     useEffect(() => {
         loadFoodData()
     }, [])
 
+    console.log(loading)
+    if(loading) return Loading
 
     const handleDelete = (id) => {
         Swal.fire({

@@ -9,7 +9,7 @@ const stats = [
         value: "1,000+",
         icon: (
             <svg
-                className="w-10 h-10 text-white"
+                className="w-10 h-10 text-primary"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -26,7 +26,7 @@ const stats = [
         value: "500+",
         icon: (
             <svg
-                className="w-10 h-10 text-white"
+                className="w-10 h-10 text-primary"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -43,7 +43,7 @@ const stats = [
         value: "30+",
         icon: (
             <svg
-                className="w-10 h-10 text-white"
+                className="w-10 h-10 text-primary"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -69,10 +69,10 @@ const ImpactStats = () => {
           {stats.map(({ id, label, value, icon }) => (
             <div
               key={id}
-              className="bg-base-200 rounded-lg p-6 shadow-md hover:shadow-lg transition"
+              className="bg-base-100 rounded-lg p-6 shadow-md hover:shadow-lg transition"
             >
               <div className="flex justify-center mb-4 ">{icon}</div>
-              <p className="text-4xl font-extrabold text-white">
+              <p className="text-4xl font-extrabold text-primary">
                 {inView ? (
                   <CountUp
                     end={parseInt(value.replace(/\D/g, ""))}

@@ -42,10 +42,14 @@ const Navbar = ({ NavLinks }) => {
           {NavLinks}
         </ul>
 
+
+
         {/* Login/Logout Button */}
-        <div className="hidden md:block">
+        <div className="hidden  md:flex items-center gap-4">
 
-
+          <div>
+            <ThemeToggle></ThemeToggle>
+          </div>
           {!user ? <div className="flex gap-4">
             <Link to="/register" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Register</Link>
             <Link to="/login" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</Link>
@@ -60,7 +64,7 @@ const Navbar = ({ NavLinks }) => {
 
           </div>}
 
-          
+
 
         </div>
 
@@ -86,7 +90,7 @@ const Navbar = ({ NavLinks }) => {
           </li>
         </ul>
       )}
-      <ToastContainer></ToastContainer>
+      {/* <ToastContainer></ToastContainer> */}
     </nav>
   );
 };

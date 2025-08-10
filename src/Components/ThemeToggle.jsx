@@ -1,14 +1,17 @@
 // src/components/ThemeToggle.jsx
 import React, { useEffect, useState } from "react";
+import { CiLight } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
+
 
 const ThemeToggle = () => {
-  const defaultTheme = document.documentElement.getAttribute("data-theme") || "foodloop";
+  const defaultTheme = document.documentElement.getAttribute("data-theme") || "light";
   const [theme, setTheme] = useState(defaultTheme);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     // if you want Tailwind's `dark:` variants to work, also toggle the .dark class:
-    if (theme === "foodloopdark") {
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
@@ -18,9 +21,9 @@ const ThemeToggle = () => {
   return (
     <button
       className="btn btn-outline"
-      onClick={() => setTheme(prev => (prev === "foodloop" ? "foodloopdark" : "foodloop"))}
+      onClick={() => setTheme(prev => (prev === "light" ? "dark" : "light"))}
     >
-      Toggle Theme
+      {theme==="light"?<CiLight />:<MdDarkMode />}
     </button>
   );
 };

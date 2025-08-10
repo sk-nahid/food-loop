@@ -7,7 +7,6 @@ import { Link } from 'react-router';
 import ImpactStats from '../Components/HomeComponents/ImpactStats';
 import FaqSection from '../Components/HomeComponents/FaqSection';
 import ImageCollageCarousel from '../Components/HomeComponents/ImageCollageCarousel';
-import PexelsGallery from '../Components/HomeComponents/UnsplashGallery';
 
 const Home = () => {
     return (

@@ -16,6 +16,7 @@ import UpdateFood from "../Pages/UpdateFood";
 import About from "../Pages/About";
 import ErrorPage from "../Components/ErrorPage";
 import BlogDetails from "../Components/BlogDetails";
+import Loading from "../Components/Loading";
 
 
 export const router = createBrowserRouter([
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/available-foods",
+        
         Component: AvailableFood
       },
       {
@@ -42,7 +44,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/food/:id',
-        element:<PrivateRoute> <FoodDetails></FoodDetails></PrivateRoute>,
+        element: <PrivateRoute> <FoodDetails></FoodDetails></PrivateRoute>,
         loader: ({params})=> fetch(`https://food-loop-server.vercel.app/food/${params.id}`)
       },
       {

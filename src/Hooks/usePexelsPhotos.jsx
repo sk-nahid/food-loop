@@ -14,7 +14,7 @@ export function usePexelsPhotos(query = "food donation", perPage = 15) {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get("https://api.pexels.com/v1/search", {
+        const response = await axios.get("https://api.pexels.com/v1/", {
           params: { query, per_page: perPage },
           headers: {
             Authorization: API_KEY,
@@ -22,6 +22,7 @@ export function usePexelsPhotos(query = "food donation", perPage = 15) {
         });
         setPhotos(response.data.photos);
       } catch (err) {
+        console.log(err)
         setError(err);
       } finally {
         setLoading(false);

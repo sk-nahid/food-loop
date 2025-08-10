@@ -14,7 +14,7 @@ const FoodCards = ({ food }) => {
 
   return (
     <motion.div
-      className="card bg-base-100 shadow-md hover:shadow-xl transition duration-300">
+      className="card bg-base-200 shadow-md hover:shadow-xl  transition duration-300">
       <figure>
         <img src={foodImage} alt={foodName} className="h-44 w-full object-cover" />
       </figure>
