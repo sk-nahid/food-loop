@@ -3,7 +3,7 @@
 A food-sharing platform that allows users to donate and request leftover food to minimize waste and support the community.
 
 ## 🌐 Live Website
-[https://assignment-11-acf48.web.app](https://assignment-11-acf48.web.app)
+[https://foodloopbd.netlify.app](https://foodloopbd.netlify.app)
 
 ## 🎯 Project Purpose
 
